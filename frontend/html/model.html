@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel = 'stylesheet' href = '../css/model.css'>
+    </head>
+    <body>
+
+        <!-- Setup model creator -->
+        <div class="tab">
+            <div class="inner-container">
+                <h1>Setup</h1>
+                <form class="input-container" onsubmit="return false">
+
+                    <div><input placeholder="Dataset Path" class="text-input" type="text" id="data-input"  name="data-input"
+                    pattern="^[A-z]:(\/|\\)(([A-z0-9 ]+(\/|\\))*[A-z0-9 ]+)?"
+                    title="Must contain a valid path to a folder." required></div>
+
+                    <div><input placeholder="Model Save Path" class="text-input" type="text" id="model-input" 
+                    pattern="^[A-z]:(/|\\)(([A-z0-9 ]+(/|\\))*[A-z0-9 ]+)?(\.[A-z0-9 ]+)?"
+                    title="Must contain a valid path to a folder or file." required></div>
+                    
+                    <div class="check-div"><input type="checkbox" id="pickle-checkbox" >Search for pre-made data</div>
+                    
+                    <button type='submit' onclick="submitForm()" class="submit-button" >Next</button>
+                    <button onclick="window.location.href = 'index.html';" >Exit</button>
+
+                </form>
+                
+
+            </div>
+        </div>
+
+        <!--Warnings tab-->
+        <div class="tab">       
+            <div class="inner-container">
+                <h1>Error</h1>
+
+                <template>
+                    <div class="warning">
+                        <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+                        <p class="txt" style="display:inline">This text box is coded by</p>
+                    </div>
+                </template>
+
+                    <!-- <button id="continue-btn" onclick="handleTrainTest(document.querySelector('#data-input').value, document.querySelector('#model-input').value, document.querySelector('#pickle-checkbox').cheked)">Continue</button> -->
+                    <button id="back-btn" onclick="switchTab(0)">Back</button>
+            </div>
+        </div>
+
+        <!-- Actual model creator with the loading bars -->
+        <div class="tab">
+
+            <div class="inner-container">
+                <h1 id="title">Building model</h1>
+
+                <div class="steps-container">
+                    <ul class="steps">
+                        <li>Data Processing</li>
+                        <li>Data prep</li>
+                        <li class="trainOnly">Training</li>
+                        <li>Evaluation</li>
+                    </ul>
+                </div>
+
+                <div><h5 class="progress-text" >Action</h5></div>
+                <div class="upper-container">
+                    <div class="progress-bar-container">
+                      <div class="progress-bar"></div>
+                    </div>
+                </div>
+
+                <div class="abs-loader" style="display:none"><div></div><div></div><div></div><div></div></div>
+
+                <div class="stats">
+                    <div class="acc-stats">
+                        <h4 class="acc-title">Validation Accuracy:</h4>
+                        <h3 class="acc-data"></h3>
+                    </div>
+    
+                    <div class="loss-stats">
+                        <h4 class="loss-title">Validation Loss:</h4>
+                        <h3 class="loss-data"></h3>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+
+
+        <!-- Results -->
+        <div class="tab">
+            <div class="inner-container">
+                <h1>Results</h1>
+                <div class ='res-stats'>
+                    <div class="res-acc-stats">
+                        <h4 class="res-acc-title">Evaluation Accuracy:</h4>
+                        <h2 class="res-acc-data"></h2>
+                    </div>
+    
+                    <div class="res-loss-stats">
+                        <h4 class="res-loss-title">Evaluation Loss:</h4>
+                        <h2 class="res-loss-data"></h2>
+                    </div>
+                </div>
+                <div><button onclick="window.location.href = 'index.html';" style="margin-top: 6px; margin-left: 95px" >Exit</button></div>
+
+            </div>
+        </div>
+
+
+
+        <script src = "/eel.js"></script>  
+        <script src="../js/model.js"></script>
+
+    </body>
+</html>

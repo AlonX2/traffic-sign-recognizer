@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel = 'stylesheet' href = '../css/predict.css'>
+    </head>
+    <body>
+
+        <div class = "tab">
+            <div class="inner-container">
+                <h1>Setup</h1>
+                <form class="input-container" onsubmit="return false">
+
+                    <div><input placeholder="Model save Path" class="text-input" type="text" id="model-input"  name="model-input"
+                    pattern="^[A-z]:(\/|\\)(([A-z0-9 ]+(\/|\\))*[A-z0-9 ]+)?"
+                    title="Must contain a valid path to a folder." required></div>
+                    
+                    <div class="btns">
+                        <button type='submit' onclick="submitForm()" class="submit-button button" >Next</button>
+                        <button class="button" onclick="window.location.href = 'index.html';" >Exit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="tab">       
+            <div class="inner-container">
+                <h1>Error</h1>
+
+                <template>
+                    <div class="warning">
+                        <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+                        <p class="txt" style="display:inline">This text box is coded by</p>
+                    </div>
+                </template>
+
+                    <div class="btns"><button class="button" id="back-btn" onclick="switchTab(0)">Back</button></div>
+            </div>
+        </div>
+
+
+        <div class="tab">
+            <div class="inner-container">
+                <h1>Predict</h1>
+                <div id="drop-area">
+                    <form class="my-form">
+                    <p>Upload images here by dragging or selecting them</p>
+                    <input type="file" id="fileElem" multiple accept="image/*" onchange="handleFiles(this.files)">
+                    <label class="button" for="fileElem">Select some files</label>
+                    </form>
+                    <div>
+                        <div id="gallery"></div>
+                    </div>
+    
+                </div>
+    
+                <div class="btns">
+                    <button class = 'button' id = "detect-button" onclick="requestPredictions()">Detect images</button>
+                    <button class="button" onclick="window.location.href = 'index.html';">Exit</button>
+                </div>
+    
+            </div>
+        </div>
+
+
+
+            <script src = "/eel.js"></script>  
+            <script src="../js/predict.js"></script>
+        </div>
+
+    </body>
+</html>

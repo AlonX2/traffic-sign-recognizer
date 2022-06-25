@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet"  href="../css/index.css">
+    </head>
+    <body>
+        <div class="inner-container">
+            <h1>Traffic Sign Recognizer</h1>
+            <button onclick="sessionStorage.setItem('testMode', false); window.location.href = 'model.html';">Train</button>
+            <button onclick="sessionStorage.setItem('testMode', true); window.location.href = 'model.html';">Test</button>
+            <button onclick="window.location.href = 'predict.html';">Predict</button>
+        </div>
+
+        <script src = "/eel.js"></script>  
+    </body>
+</html>
