@@ -6,6 +6,7 @@ import pandas as pd
 import tensorflow.keras as keras
 import eel
 import dill as pickle
+from sklearn.utils import *
 from sklearn.model_selection import train_test_split
 
 

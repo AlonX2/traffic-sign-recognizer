@@ -2,7 +2,6 @@ import dataHandler as dh
 from model import Model
 import warnings
 import numpy as np
-import tensorflow as tf
 import eel
 from PIL import Image
 import tensorflow.keras as keras

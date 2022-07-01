@@ -2,8 +2,6 @@ import tensorflow.keras as keras
 from keras.layers import Conv2D, MaxPool2D, Dense, Dropout, Flatten, BatchNormalization
 import eel
 from callback import eelCallback
-import dill as pickle
-import matplotlib.pyplot as plt
  
 class Model:
     def __init__(self, model = None):
