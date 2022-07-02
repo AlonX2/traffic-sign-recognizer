@@ -84,7 +84,8 @@ def create_model(data_path, model_path, pickle_data):
         model.save(model_path)
         eel.showResults("{:.3f}".format(accuracy),"{:.3f}".format(loss))
 
-    except:
+    except Exception as e:
+        print(e)
         eel.handleError("Failed to create model, please recheck your data and model paths")
     
 #external method the UI calls in order to test a model
