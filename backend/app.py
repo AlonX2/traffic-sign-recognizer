@@ -178,7 +178,7 @@ def check_paths(model_path = None, data_path = None):
             warnings.append('The model path does not lead to a valid directory')
         if(data_path is not None and not os.path.isdir(data_path)):
             warnings.append('The data path does not lead to a valid directory')
-        elif(data_path is not None and not (os.path.isdir(data_path + '\\Train') or os.path.isfile(data_path + '\\pickle'))):
+        elif(data_path is not None and not (os.path.isdir(data_path + '\\Train') or os.path.isfile(data_path + '\\pickle') or os.path.isdir(data_path + '/Train') or os.path.isfile(data_path + '/pickle'))):
             warnings.append('The data path does not appear to lead to the GTSRB dataset or a packed data file.')
         # elif(not checksumdir.dirhash(os.path.abspath("data")) == checksumdir.dirhash(data_path)):
         #     warnings.append('The data path does not appear to lead to the complete GTSRB dataset')
