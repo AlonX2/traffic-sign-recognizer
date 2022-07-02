@@ -65,16 +65,16 @@ def create_model(data_path, model_path, pickle_data):
         # tf.random.set_seed(0)
 
         #if the user wanted to used pickled data, this checks if such data exists.
-        if(pickle_data and os.path.isfile(data_path + '\\pickle')):
+        if(pickle_data and (os.path.isfile(data_path + '/pickle'))):
             try:
                 eel.updateAction('Unpacking existing data', True)
-                with open(data_path + '\\pickle', 'rb') as f:
+                with open(data_path + '/pickle', 'rb') as f:
                     data = pickle.load(f)
                 eel.nextStep()
             except:
-                data = dh.process_data(data_path +"\\")
+                data = dh.process_data(data_path +"/")
         else:
-            data = dh.process_data(data_path +"\\")
+            data = dh.process_data(data_path +"/")
 
         model = Model()
         model.build_model()
@@ -96,18 +96,18 @@ def test_model(data_path, model_path, pickle_data):
         model = keras.models.load_model(model_path)
 
         #if the user wanted to used pickled data, this checks if such data exists.
-        if(pickle_data and os.path.isfile(data_path + '\\pickle')):
+        if(pickle_data and os.path.isfile(data_path + '/pickle')):
             try:
                 eel.updateAction('Unpacking existing data', True)
-                with open(data_path + '\\pickle', 'rb') as f:
+                with open(data_path + '/pickle', 'rb') as f:
                     data = pickle.load(f)
                 eel.nextStep()
                 eel.nextStep()
             except:
-                data = dh.process_data(data_path +"\\")
+                data = dh.process_data(data_path +"/")
 
         else:
-            data = dh.process_data(data_path +"\\")
+            data = dh.process_data(data_path +"/")
 
         eel.updateAction('Evaluating', True)
         loss, accuracy = model.evaluate(data.x_test, data.y_test)    
@@ -179,7 +179,7 @@ def check_paths(model_path = None, data_path = None):
             warnings.append('The model path does not lead to a valid directory')
         if(data_path is not None and not os.path.isdir(data_path)):
             warnings.append('The data path does not lead to a valid directory')
-        elif(data_path is not None and not (os.path.isdir(data_path + '\\Train') or os.path.isfile(data_path + '\\pickle') or os.path.isdir(data_path + '/Train') or os.path.isfile(data_path + '/pickle'))):
+        elif(data_path is not None and not ( os.path.isdir(data_path + '/Train') or os.path.isfile(data_path + '/pickle'))):
             warnings.append('The data path does not appear to lead to the GTSRB dataset or a packed data file.')
         # elif(not checksumdir.dirhash(os.path.abspath("data")) == checksumdir.dirhash(data_path)):
         #     warnings.append('The data path does not appear to lead to the complete GTSRB dataset')

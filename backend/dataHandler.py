@@ -80,7 +80,7 @@ def process_data(data_path):
     data = Object(x_train = x_train, x_val= x_val, x_test = x_test, y_train = y_train, y_val = y_val, y_test = y_test)
 
     #saving the processed data in a pickle file for future use
-    with open(data_path + '\\pickle', 'wb') as f: 
+    with open(data_path + '/pickle', 'wb') as f: 
         pickle.dump(data, f)
 
     eel.updateProgress(4, 5)
