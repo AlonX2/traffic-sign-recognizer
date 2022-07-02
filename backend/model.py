@@ -12,7 +12,7 @@ class Model:
     #method that builds and compiles the model
     def build_model(self):
         model = keras.models.Sequential()
-        model.add(Conv2D(filters=32, kernel_size= (5,5), strides=2, activation='relu', padding='same', input_shape=(30,30,3)))
+        model.add(Conv2D(filters=32, kernel_size= (5,5), strides=2, activation='relu', padding='same', input_shape=(32,32,3)))
         model.add(MaxPool2D((2,2), padding='valid'))
         model.add(Dropout(0.2))
 
